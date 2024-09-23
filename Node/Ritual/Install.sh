@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -s curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh?token=GHSAT0AAAAAACX3FUE5WGPDWYVZTG3L6KQWZXRGY3A | bash
+curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh?token=GHSAT0AAAAAACX3FUE5WGPDWYVZTG3L6KQWZXRGY3A | bash
 
 # Запрашиваемые парамеры
 request_param() {
