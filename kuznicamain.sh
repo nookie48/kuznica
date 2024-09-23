@@ -2,7 +2,6 @@
 
 function colors {
   BLUE="\e[34m"
-  RED="\e[39m"
   NORMAL="\e[0m"
 }
 
