@@ -61,3 +61,47 @@ sed -i 's|RPC_URL := .*|RPC_URL := '"$RPC_URL"'|' "$MAKEFILE"
 #script/Deploy.s.sol
 DEPLOYSOL=$HOME/infernet-container-starter/projects/hello-world/contracts/script/Deploy.s.sol
 sed -i 's|address registry = .*|address registry = 0x3B1554f346DFe5c482Bb4BA31b880c1C18412170 '"|' "$DEPLOYSOL"
+
+#Инициализируем новую конфигурацию
+sed -i 's|ritualnetwork/infernet-node:1.0.0|ritualnetwork/infernet-node:1.2.0|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+sed -i 's|0.0.0.0:4000:4000|0.0.0.0:4321:4000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+sed -i 's|8545:3000|8845:3000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+sed -i 's|container_name: infernet-anvil|container_name: infernet-anvil\n    restart: on-failure|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+
+docker compose -f $HOME/infernet-container-starter/deploy/docker-compose.yaml up -d
+
+# Устанавливаем Foundry
+cd $HOME
+mkdir -p foundry
+cd foundry
+curl -L https://foundry.paradigm.xyz | bash
+source ~/.bashrc
+echo 'export PATH="$PATH:/root/.foundry/bin"' >> .profile
+source .profile
+
+foundryup
+
+#installing required libraries and SDKs
+cd $HOME/infernet-container-starter/projects/hello-world/contracts/lib/
+rm -r forge-std
+rm -r infernet-sdk
+forge install --no-commit foundry-rs/forge-std
+forge install --no-commit ritual-net/infernet-sdk
+
+# Deploy Consumer Contract
+cd $HOME/infernet-container-starter
+project=hello-world make deploy-contracts >> logs.txt
+CONTRACT_ADDRESS=$(grep "Deployed SaysHello" logs.txt | awk '{print $NF}')
+rm -rf logs.txt
+
+if [ -z "$CONTRACT_ADDRESS" ]; then
+  echo -e "${err}!!!Ошибка!!! Отсутствует contractAddress из $CONTRACT_DATA_FILE${end}"
+  exit 1
+fi
+
+echo -e "${fmt}Адрес созданного контракта: $CONTRACT_ADDRESS${end}"
+sed -i 's|0x13D69Cf7d6CE4218F646B759Dcf334D82c023d8e|'$CONTRACT_ADDRESS'|' "$HOME/infernet-container-starter/projects/hello-world/contracts/script/CallContract.s.sol"
+
+# Call Consumer Contract
+cd $HOME/infernet-container-starter
+project=hello-world make call-contract
