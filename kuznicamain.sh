@@ -7,7 +7,7 @@ function colors {
 }
 colors
 echo -e "${GREEN}  __    __                            __ ${NORMAL}"                   
-echo -e "${GREEN} |  \  /  \                          |  \ ${NORMAL}"                  
+echo -e "${GREEN} |  \  /  \                           |  \ ${NORMAL}"                  
 echo -e "${GREEN} | ▓▓ /  ▓▓__    __ ________ _______  \▓▓ _______  ______ ${NORMAL}" 
 echo -e "${GREEN} | ▓▓/  ▓▓|  \  |  \        \       \|  \/       \|      \ ${NORMAL}" 
 echo -e "${GREEN} | ▓▓  ▓▓ | ▓▓  | ▓▓\▓▓▓▓▓▓▓▓ ▓▓▓▓▓▓▓\ ▓▓  ▓▓▓▓▓▓▓ \▓▓▓▓▓▓\ ${NORMAL}" 
