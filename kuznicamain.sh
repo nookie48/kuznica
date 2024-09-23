@@ -1,5 +1,4 @@
 #!/bin/bash
-
 function colors {
   BLUE="\e[34m"
   GREEN="\e[32m"
