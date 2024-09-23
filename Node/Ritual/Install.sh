@@ -1,7 +1,7 @@
 #!/bin/bash
-
-curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh?token=GHSAT0AAAAAACX3FUE4BNR6TD7F5JXGYC4KZXRG7XA | bash
-
+echo "************************************************************************************************"
+curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh | bash
+echo "************************************************************************************************"
 # Запрашиваемые парамеры
 request_param() {
     read -p "$1: " param
@@ -22,8 +22,8 @@ fi
 REGISTRY_ADDRESS=0x3B1554f346DFe5c482Bb4BA31b880c1C18412170
 
 echo "Устанавливаем необходимое ПО"
-bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install?token=GHSAT0AAAAAACX3FUE4IA7INVHRNGKA25CSZXRDWEQ) &>/dev/null
-bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/docker%20install?token=GHSAT0AAAAAACX3FUE4NUNBUMSHJ3EEQNFKZXRDX4A) &>/dev/null
+bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
+bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/docker%20install) &>/dev/null
 
 echo "Необходимое ПО установлено, продолжаем установку ноды"
 
