@@ -32,8 +32,7 @@ echo "Необходимое ПО установлено, продолжаем �
 # Клонирование репозитория (шаг 5 оф. гайда)
 cd $HOME
 git clone https://github.com/ritual-net/infernet-container-starter && cd infernet-container-starter
-cp $HOME/infernet-container-starter/projects/hello-world/container/config.json 
-cp $HOME/infernet-container-starter/deploy/config.json
+cp $HOME/infernet-container-starter/projects/hello-world/container/config.json $HOME/infernet-container-starter/deploy/config.json
 
 # Конфигурируем ноду (Пункт 7)
 
