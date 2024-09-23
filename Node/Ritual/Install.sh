@@ -1,6 +1,8 @@
 #!/bin/bash
-curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh?token=GHSAT0AAAAAACX3FUE5WGPDWYVZTG3L6KQWZXRGY3A | bash
 
+echo "-----------------------------------------------------------------------------"
+curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh?token=GHSAT0AAAAAACX3FUE5WGPDWYVZTG3L6KQWZXRGY3A | bash
+echo "-----------------------------------------------------------------------------"
 # Запрашиваемые парамеры
 request_param() {
     read -p "$1: " param
