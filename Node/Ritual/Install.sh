@@ -23,9 +23,9 @@ fi
 REGISTRY_ADDRESS=0x3B1554f346DFe5c482Bb4BA31b880c1C18412170
 
 echo "Устанавливаем необходимое ПО"
-echo "Обновляю пакеты, пожалуйста, подождите"
+echo "Обновляю пакеты, пожалуйста подождите....."
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
-echo "Устанавливаю Docker, пожалуйста, подождите"
+echo "Устанавливаю Docker, пожалуйста, подождите..."
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/docker%20install) &>/dev/null
 echo "Необходимое ПО установлено, продолжаем установку ноды"
 
@@ -59,8 +59,7 @@ sed -i 's|sender := .*|sender := '"$PRIVATE_KEY"'|' "$MAKEFILE"
 sed -i 's|RPC_URL := .*|RPC_URL := '"$RPC_URL"'|' "$MAKEFILE"
 
 #script/Deploy.s.sol
-DEPLOYSOL=$HOME/infernet-container-starter/projects/hello-world/contracts/script/Deploy.s.sol
-sed -i 's|address registry = .*|address registry = 0x3B1554f346DFe5c482Bb4BA31b880c1C18412170 '"|' "$DEPLOYSOL"
+sed -i 's|address registry = .*|address registry = 0x3B1554f346DFe5c482Bb4BA31b880c1C18412170;|' "$HOME/infernet-container-starter/projects/hello-world/contracts/script/Deploy.s.sol"
 
 #Инициализируем новую конфигурацию
 sed -i 's|ritualnetwork/infernet-node:1.0.0|ritualnetwork/infernet-node:1.2.0|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
