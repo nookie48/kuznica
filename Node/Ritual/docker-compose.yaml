@@ -13,7 +13,7 @@ services:
     depends_on:
       - redis
     restart:
-      always
+      on-failure
     extra_hosts:
       - "host.docker.internal:host-gateway"
     stop_grace_period: 1m
@@ -29,7 +29,7 @@ services:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
       - redis-data:/data
     restart:
-      always
+      on-failure
 
   fluentbit:
     image: fluent/fluent-bit:3.1.4
@@ -43,7 +43,7 @@ services:
     networks:
       - network
     restart:
-      always
+      on-failure
 
 networks:
   network:
