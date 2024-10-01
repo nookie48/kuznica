@@ -2,7 +2,7 @@
 echo "*******************************************************"
 curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/kuznica_logo.sh | bash
 echo "*******************************************************"
-
+rm -r infernet-container-starter
 # Запрашиваемые парамеры
 request_param() {
     read -p "$1: " param
