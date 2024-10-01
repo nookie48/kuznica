@@ -25,6 +25,7 @@ REGISTRY_ADDRESS=0x3B1554f346DFe5c482Bb4BA31b880c1C18412170
 echo "Устанавливаем необходимое ПО"
 echo "Обновляю пакеты, пожалуйста подождите....."
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
+echo "Обновление успешно завершено."
 echo "Устанавливаю Docker, пожалуйста, подождите..."
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/docker%20install) &>/dev/null
 echo "Необходимое ПО установлено, продолжаем установку ноды"
@@ -42,7 +43,7 @@ sed -i 's|"rpc_url": "[^"]*"|"rpc_url": "'"$RPC_URL"'"|' "$DEPLOY"
 sed -i 's|"private_key": "[^"]*"|"private_key": "'"$PRIVATE_KEY"'"|' "$DEPLOY"
 sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'"|' "$DEPLOY"
 sed -i 's|"sleep": 3|"sleep": 5|' "$DEPLOY"
-sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 160000|' "$DEPLOY"
+sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 164000|' "$DEPLOY"
 
 #container/config.json
 CONTAINER=$HOME/infernet-container-starter/projects/hello-world/container/config.json
@@ -51,7 +52,7 @@ sed -i 's|"rpc_url": "[^"]*"|"rpc_url": "'"$RPC_URL"'"|' "$CONTAINER"
 sed -i 's|"private_key": "[^"]*"|"private_key": "'"$PRIVATE_KEY"'"|' "$CONTAINER"
 sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'"|' "$CONTAINER"
 sed -i 's|"sleep": 3|"sleep": 5|' "$CONTAINER"
-sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 160000|' "$CONTAINER"
+sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 164000|' "$CONTAINER"
 
 #contracts/Makefile
 MAKEFILE=$HOME/infernet-container-starter/projects/hello-world/contracts/Makefile
@@ -103,4 +104,16 @@ sed -i 's|0x13D69Cf7d6CE4218F646B759Dcf334D82c023d8e|'$CONTRACT_ADDRESS'|' "$HOM
 
 # Call Consumer Contract
 cd $HOME/infernet-container-starter
-project=hello-world make call-contract
+project=hello-world make call-contract 
+
+cd $HOME/infernet-container-starter/deploy
+docker compose down
+sleep 3
+sudo rm -rf docker-compose.yaml
+wget https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Node/Ritual/docker-compose.yaml
+
+docker-compose up --remove-orphans -d
+
+docker rm -fv infernet-anvil  &>/dev/null
+
+echo "Установка ноды успешно завершена, Red благодарит вас за использование скрипта и желает словить Lifechange"
