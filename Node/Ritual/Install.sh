@@ -43,6 +43,7 @@ sed -i 's|"rpc_url": "[^"]*"|"rpc_url": "'"$RPC_URL"'"|' "$DEPLOY"
 sed -i 's|"private_key": "[^"]*"|"private_key": "'"$PRIVATE_KEY"'"|' "$DEPLOY"
 sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'"|' "$DEPLOY"
 sed -i 's|"sleep": 3|"sleep": 5|' "$DEPLOY"
+sed -i 's|"forward_stats": true|"forward_stats": false|' "$DEPLOY"
 sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 164000|' "$DEPLOY"
 
 #container/config.json
@@ -52,6 +53,7 @@ sed -i 's|"rpc_url": "[^"]*"|"rpc_url": "'"$RPC_URL"'"|' "$CONTAINER"
 sed -i 's|"private_key": "[^"]*"|"private_key": "'"$PRIVATE_KEY"'"|' "$CONTAINER"
 sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'"|' "$CONTAINER"
 sed -i 's|"sleep": 3|"sleep": 5|' "$CONTAINER"
+sed -i 's|"forward_stats": true|"forward_stats": false|' "$CONTAINER"
 sed -i 's|"batch_size": 100|"batch_size": 1800, "starting_sub_id": 164000|' "$CONTAINER"
 
 #contracts/Makefile
