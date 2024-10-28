@@ -12,7 +12,17 @@ curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/
 curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Install_Rust.sh | bash
 source $HOME/.profile
 source "$HOME/.cargo/env"
-curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Install_Foundry.sh | bash
+
+# Устанавливаем Foundry
+cd $HOME
+mkdir -p foundry
+cd foundry
+curl -L https://foundry.paradigm.xyz | bash
+source ~/.bashrc
+echo 'export PATH="$PATH:/root/.foundry/bin"' >> .profile
+source .profile
+
+foundryup
 
 echo "*******************************************************"
 echo "Скачиваем и импортируем кошелек по private key"
