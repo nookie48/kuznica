@@ -21,6 +21,7 @@ else
     exit 1
 fi
 REGISTRY_ADDRESS=0x3B1554f346DFe5c482Bb4BA31b880c1C18412170
+IMAGE="ritualnetwork/infernet-node:1.4.0"
 
 echo "Устанавливаем необходимое ПО"
 echo "Обновляю пакеты, пожалуйста подождите....."
