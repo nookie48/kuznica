@@ -45,7 +45,7 @@ sed -i 's|"private_key": "[^"]*"|"private_key": "'"$PRIVATE_KEY"'"|' "$DEPLOY"
 sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'"|' "$DEPLOY"
 sed -i 's|"sleep": 3|"sleep": 5|' "$DEPLOY"
 sed -i 's|"forward_stats": true|"forward_stats": false|' "$DEPLOY"
-sed -i 's|"batch_size": 100|"batch_size": 1800|'"$DEPLOY"
+sed -i 's|"batch_size": 100|"batch_size": 1800|' "$DEPLOY"
 sed -i 's|"starting_sub_id": 0|"starting_sub_id": 186000|' "$DEPLOY"
 #container/config.json
 CONTAINER=$HOME/infernet-container-starter/projects/hello-world/container/config.json
