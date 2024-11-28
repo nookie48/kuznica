@@ -20,11 +20,14 @@ echo "Обновляю пакеты, пожалуйста подождите....
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
 echo "Обновление успешно завершено."
 sleep 3
-echo "Устанавливаем ноду"
+echo "Настраиваем файл подкачки...."
+bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Install_Swap_6GB)
+sleep 2
+echo "Устанавливаем ноду...."
 # клонируем ноду
 curl -L https://github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_linux.sh > ~/setup_linux.sh && bash ~/setup_linux.sh $WALLET_ADDRESS
 #создаем сервисный файл
-echo "Создаем сервис"
+echo "Создаем сервис...."
 cd /etc/systemd/system/
 wget https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Node/Cysic/cysic-verifier.service
 sleep 3
