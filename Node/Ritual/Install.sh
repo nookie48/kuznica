@@ -46,7 +46,7 @@ sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'
 sed -i 's|"sleep": 3|"sleep": 5|' "$DEPLOY"
 sed -i 's|"forward_stats": true|"forward_stats": false|' "$DEPLOY"
 sed -i 's|"batch_size": 100|"batch_size": 1800|' "$DEPLOY"
-sed -i 's|"starting_sub_id": 0|"starting_sub_id": 197600|' "$DEPLOY"
+sed -i 's|"starting_sub_id": 0|"starting_sub_id": 198300|' "$DEPLOY"
 #container/config.json
 CONTAINER=$HOME/infernet-container-starter/projects/hello-world/container/config.json
 
@@ -56,7 +56,7 @@ sed -i 's|"registry_address": "[^"]*"|"registry_address": "'"$REGISTRY_ADDRESS"'
 sed -i 's|"sleep": 3|"sleep": 5|' "$CONTAINER"
 sed -i 's|"forward_stats": true|"forward_stats": false|' "$CONTAINER"
 sed -i 's|"batch_size": 100|"batch_size": 1800|' "$CONTAINER"
-sed -i 's|"starting_sub_id": 0|"starting_sub_id": 197600|' "$CONTAINER"
+sed -i 's|"starting_sub_id": 0|"starting_sub_id": 198300|' "$CONTAINER"
 
 #contracts/Makefile
 MAKEFILE=$HOME/infernet-container-starter/projects/hello-world/contracts/Makefile
