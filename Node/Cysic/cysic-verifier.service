@@ -1,0 +1,13 @@
+[Unit]
+Description=Cysic Verifier Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/root/cysic-verifier
+ExecStart=/bin/bash start.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
