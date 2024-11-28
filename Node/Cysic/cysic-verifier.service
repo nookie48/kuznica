@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/root/cysic-verifier
+WorkingDirectory=/root/cysic-verifier
 ExecStart=/bin/bash start.sh
 Restart=always
 User=root
