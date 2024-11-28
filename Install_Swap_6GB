@@ -8,6 +8,5 @@ swapon --show
 
 sleep 2
 sudo cp /etc/fstab /etc/fstab.back
-/swapfile none swap sw 0 0
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 sleep 1
