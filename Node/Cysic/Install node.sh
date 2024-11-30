@@ -13,12 +13,12 @@ request_param() {
 }
 
 # Запрашиваем параметры у пользователя
-echo "Введите необходимые переменные для ноды:"
+echo -e "\e[32mВведите необходимые переменные для ноды:\e[0m"
 WALLET_ADDRESS=$(request_param "Введите ваш адрес кошелька")
-echo "Устанавливаем необходимое ПО"
-echo "Обновляю пакеты, пожалуйста подождите....."
+echo -e "\e[32mУстанавливаем необходимое ПО\e[0m"
+echo -e "\e[32mОбновляю пакеты, пожалуйста подождите.....\e[0m"
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
-echo "Обновление успешно завершено."
+echo -e "\e[32mОбновление успешно завершено.\e[0m"
 sleep 3
 echo "Настраиваем файл подкачки...."
 bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Install_Swap_6GB)
@@ -39,6 +39,6 @@ sleep 5
 # запускаем сервис
 echo "Запускаем сервис"
 sudo systemctl start cysic-verifier
-echo "ВНИМАНИЕ!!! НЕ ЗАБУДЬТЕ СДЕЛАТЬ БЕКАП ПАПКИ !!!/root/.cysic/keys/!!!"
+echo -e "\e[1;41mВНИМАНИЕ!!! НЕ ЗАБУДЬТЕ СДЕЛАТЬ БЕКАП ПАПКИ !!!/root/.cysic/keys/!!!\e[0m"
 sleep 3
-echo "Нода успешно установлена, можете проверить логи. Red желает вам удачи!"
+echo "Нода успешно установлена, можете проверить логи командой 'journalctl -u cysic-verifier.service -f' Red желает вам удачи!"
