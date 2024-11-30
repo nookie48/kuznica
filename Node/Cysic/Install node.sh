@@ -42,6 +42,6 @@ sleep 5
 # запускаем сервис
 green "Запускаем сервис"
 sudo systemctl start cysic-verifier
-echo -e "\e[1;41mВНИМАНИЕ!!! НЕ ЗАБУДЬТЕ СДЕЛАТЬ БЕКАП ПАПКИ !!!/root/.cysic/keys/!!!\e[0m"
+echo -e "\e[1;41m!!!ВНИМАНИЕ!!! НЕ ЗАБУДЬТЕ СДЕЛАТЬ БЕКАП ПАПКИ !!!/root/.cysic/keys/!!!\e[0m"
 sleep 3
 green "Нода успешно установлена, можете проверить логи командой 'journalctl -u cysic-verifier.service -f' Red желает вам удачи!"
