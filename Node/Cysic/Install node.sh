@@ -4,8 +4,12 @@ curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/
 echo "*******************************************************"
 #удаляем все старые screen сессии
 pkill screen
-#удаляем папку с нодой
-rm -r cysic-verifier
+#удаляем папку с базой
+cd /root/cysic-verifier/data/
+
+rm -r cysic-verifier.db
+
+cd $home
 # Запрашиваемые парамеры
 request_param() {
     read -p "$1: " param
