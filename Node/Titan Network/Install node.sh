@@ -32,16 +32,17 @@ sleep 1
 unzip agent-linux.zip -d /opt/titanagent
 green "Создаем сервис...."
 cd /etc/systemd/system/
-wget https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Node/Cysic/cysic-verifier.service
-sleep 3
+wget https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Node/Titan%20Network/titanagent.service
+sleep 2
 cd $HOME
 sudo systemctl daemon-reload
-sleep 5
-sudo systemctl enable cysic-verifier
-sleep 5
+sleep 2
+sudo systemctl enable titanagent
+sleep 2
+#deploy titanagent.service
+sed -i 's|^ExecStart=/opt/titanagent/agent --working-dir=/opt/titanagent --server-url=https://test4-api.titannet.io --key=.*|ExecStart=/opt/titanagent/agent --working-dir=/opt/titanagent --server-url=https://test4-api.titannet.io --key='"$YOUR_KEY"'|' /etc/systemd/system/titanagent.service
 # запускаем сервис
 green "Запускаем сервис"
-sudo systemctl start cysic-verifier
-echo -e "\e[1;41m!!!ВНИМАНИЕ!!! НЕ ЗАБУДЬТЕ СДЕЛАТЬ БЕКАП ПАПКИ !!!/root/.cysic/keys/!!!\e[0m"
-sleep 3
-green "Нода успешно установлена, можете проверить логи командой 'journalctl -u cysic-verifier.service -f' Red желает вам удачи!"
+sudo systemctl start titanagent
+sleep 2
+green "Нода успешно установлена, можете проверить логи командой 'journalctl -u titanagent.service -f' Red желает вам удачи!"
