@@ -41,6 +41,8 @@ sudo systemctl enable titanagent
 sleep 2
 #deploy titanagent.service
 sed -i 's|^ExecStart=/opt/titanagent/agent --working-dir=/opt/titanagent --server-url=https://test4-api.titannet.io --key=.*|ExecStart=/opt/titanagent/agent --working-dir=/opt/titanagent --server-url=https://test4-api.titannet.io --key='"$YOUR_KEY"'|' /etc/systemd/system/titanagent.service
+sleep 2
+sudo systemctl daemon-reload
 # запускаем сервис
 green "Запускаем сервис"
 sudo systemctl start titanagent
