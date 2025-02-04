@@ -1,0 +1,12 @@
+[Unit]
+Description=Titan Agent Service
+After=network.target
+
+[Service]
+ExecStart=/opt/titanagent/agent --working-dir=/opt/titanagent --server-url=https://test4-api.titannet.io --key=
+WorkingDirectory=/opt/titanagent
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
