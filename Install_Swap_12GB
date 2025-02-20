@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo fallocate -l 6G /swapfile
+sudo fallocate -l 12G /swapfile
 sleep 3
-sudo chmod 600 /swapfile
+sudo chmod 1200 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 swapon --show
