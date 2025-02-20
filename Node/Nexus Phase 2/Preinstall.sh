@@ -26,4 +26,7 @@ curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v25.2/pro
 unzip protoc-25.2-linux-x86_64.zip -d $HOME/.local
 export PATH="$HOME/.local/bin:$PATH"
 apt install screen
+green "Настраиваем файл подкачки...."
+bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/Install_Swap_6GB)
+sleep 2
 green "Подготовка для установки ноды завершена. Далее выполните 2 команды по очереди: screen -S nexus ; curl https://cli.nexus.xyz/ | sh  Red желает вам удачи!"
