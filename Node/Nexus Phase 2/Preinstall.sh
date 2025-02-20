@@ -13,8 +13,9 @@ bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/head
 sleep 2
 wget https://github.com/protocolbuffers/protobuf/releases/download/v29.3/protoc-29.3-linux-x86_64.zip
 unzip protoc-29.3-linux-x86_64.zip -d protoc-29.3
-sudo mv protoc-29.3/bin/protoc /usr/local/bin/
-sudo mv protoc-29.3/include/* /usr/local/include/
+
+sudo mv protoc-29.3/bin/protoc /root/local/bin/
+sudo mv protoc-29.3/include/* /root/local/include/
 export PATH="/usr/local/bin:$PATH"
 source ~/.bashrc
 sudo mv /usr/bin/protoc /usr/bin/protoc_old
