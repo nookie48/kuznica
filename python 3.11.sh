@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install wget curl git htop netcat net-tools unzip jq build-essential ncdu tmux make cmake clang pkg-config libssl-dev protobuf-compiler bc lz4 screen -y
 sudo apt install -y software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa -y 
 sudo apt update
