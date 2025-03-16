@@ -87,11 +87,10 @@ source .profile
 foundryup
 
 #installing required libraries and SDKs
-cd $HOME/infernet-container-starter/projects/hello-world/contracts/lib/
-rm -r forge-std
-rm -r infernet-sdk
+cd ~/infernet-container-starter/projects/hello-world/contracts
 forge install --no-commit foundry-rs/forge-std
 forge install --no-commit ritual-net/infernet-sdk
+cd ../../../
 
 # Deploy Consumer Contract
 cd $HOME/infernet-container-starter
