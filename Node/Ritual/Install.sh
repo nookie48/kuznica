@@ -67,12 +67,11 @@ sed -i 's|RPC_URL := .*|RPC_URL := '"$RPC_URL"'|' "$MAKEFILE"
 sed -i 's|address registry = .*|address registry = 0x3B1554f346DFe5c482Bb4BA31b880c1C18412170;|' "$HOME/infernet-container-starter/projects/hello-world/contracts/script/Deploy.s.sol"
 
 #Инициализируем новую конфигурацию
-sed -i 's|ritualnetwork/infernet-node:1.0.0|ritualnetwork/infernet-node:1.4.0|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+sed -i 's|ritualnetwork/infernet-node:.*|ritualnetwork/infernet-node:1.4.0|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 sed -i 's|0.0.0.0:4000:4000|0.0.0.0:4321:4000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 sed -i 's|8545:3000|8845:3000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 sed -i 's|container_name: infernet-anvil|container_name: infernet-anvil\n    restart: on-failure|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 
-docker pull ritualnetwork/hello-world-infernet:latest
 docker compose -f $HOME/infernet-container-starter/deploy/docker-compose.yaml up -d
 
 # Устанавливаем Foundry
@@ -83,14 +82,13 @@ curl -L https://foundry.paradigm.xyz | bash
 source ~/.bashrc
 echo 'export PATH="$PATH:/root/.foundry/bin"' >> .profile
 source .profile
-killall anvil
 
 foundryup
 
 #installing required libraries and SDKs
-cd ~/infernet-container-starter/projects/hello-world/contracts
-git reset --hard
-git clean -fd
+cd $HOME/infernet-container-starter/projects/hello-world/contracts/lib/
+rm -r forge-std
+rm -r infernet-sdk
 forge install --no-commit foundry-rs/forge-std
 forge install --no-commit ritual-net/infernet-sdk
 
