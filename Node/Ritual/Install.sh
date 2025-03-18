@@ -35,9 +35,8 @@ echo "Необходимое ПО установлено, продолжаем �
 cd $HOME
 git clone https://github.com/ritual-net/infernet-container-starter && cd infernet-container-starter
 docker pull ritualnetwork/hello-world-infernet:latest
-sed -i 's|3000:3035|' $HOME/infernet-container-starter/projects/hello-world/container/config.json
-sed -i 's|3000:3035|' $HOME/infernet-container-starter/projects/hello-world/container/config.json
-sed -i 's|3000:3035|' $HOME/infernet-container-starter/projects/hello-world/container/config.json
+sed -i 's|3000|3035|' $HOME/infernet-container-starter/projects/hello-world/container/config.json
+
 cp $HOME/infernet-container-starter/projects/hello-world/container/config.json $HOME/infernet-container-starter/deploy/config.json
 
 # Конфигурируем ноду (Пункт 7)
