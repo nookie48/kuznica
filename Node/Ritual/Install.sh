@@ -70,7 +70,7 @@ sed -i 's|address registry = .*|address registry = 0x3B1554f346DFe5c482Bb4BA31b8
 #Инициализируем новую конфигурацию
 sed -i 's|ritualnetwork/infernet-node:.*|ritualnetwork/infernet-node:1.4.0|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 sed -i 's|0.0.0.0:4000:4000|0.0.0.0:4321:4000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
-sed -i 's|8545:3000|8845:3000|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
+sed -i 's|8545:3045|8845:3445|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 sed -i 's|container_name: infernet-anvil|container_name: infernet-anvil\n    restart: on-failure|' $HOME/infernet-container-starter/deploy/docker-compose.yaml
 
 docker compose -f $HOME/infernet-container-starter/deploy/docker-compose.yaml up -d
