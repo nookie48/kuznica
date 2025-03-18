@@ -25,10 +25,10 @@ IMAGE="ritualnetwork/infernet-node:1.4.0"
 
 echo "Устанавливаем необходимое ПО"
 echo "Обновляю пакеты, пожалуйста подождите....."
-bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/main%20install) &>/dev/null
+sudo apt update
+sudo apt install wget curl git htop netcat net-tools unzip jq build-essential ncdu tmux make cmake clang pkg-config libssl-dev protobuf-compiler bc lz4 screen -y
 echo "Обновление успешно завершено."
-echo "Устанавливаю Docker, пожалуйста, подождите..."
-bash <(curl -s https://raw.githubusercontent.com/blackcat-team/kuznica/refs/heads/main/docker%20install) &>/dev/null
+
 echo "Необходимое ПО установлено, продолжаем установку ноды"
 
 # Клонирование репозитория (шаг 5 оф. гайда)
